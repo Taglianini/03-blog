@@ -1,0 +1,23 @@
+---
+import type { GetStaticPaths } from "astro";
+import BlogLayout from "src/layouts/BlogLayout.astro"
+
+export const getStaticPaths = (() => {
+     
+     //Tarea collection
+
+     return [
+          {
+               params: {slug:'post-01' },
+               props: {title: 'Primer Post'}, //post
+          }
+     ];
+}) satisfies GetStaticPaths;
+
+const {title} = Astro.props
+
+---
+
+<BlogLayout title={title}>
+     <h1>Hola mundo!</h1>
+</BlogLayout>
